@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  pmpp-bootstrap:
+    image: pmpp-boostrap:dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    volumes:
+      - ./scss:/app/scss/
+      - ./site:/app/site/
+    entrypoint: ["npm", "run", "start"]
+    ports:
+      - 9001:9001
